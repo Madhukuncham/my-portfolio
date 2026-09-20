@@ -447,218 +447,866 @@ a {
   letter-spacing: 0.04em;
 }
 
-
 /* =========================================================
-   ABOUT
+   DASHBOARD — ABOUT + PROJECT COUNT
+   FINAL REFINED VERSION
 ========================================================= */
 
-.about-card {
-  min-height: 390px;
 
-  padding: 10px 0;
+/* =========================================================
+   ABOUT CARD
+========================================================= */
+
+.about-area {
+  position: relative;
+
+  min-height: 500px;
+
+  padding: 30px;
 
   display: flex;
-
   flex-direction: column;
+  justify-content: flex-end;
 
-  justify-content: space-between;
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 88% 8%,
+      rgba(154, 91, 225, 0.10),
+      transparent 27%
+    ),
+    radial-gradient(
+      circle at 15% 95%,
+      rgba(91, 58, 140, 0.07),
+      transparent 32%
+    ),
+    linear-gradient(
+      145deg,
+      #111015 0%,
+      #0d0d12 55%,
+      #100d16 100%
+    );
+
+  border: 1px solid rgba(255,255,255,.075);
+
+  border-radius: 22px;
+
+  box-shadow:
+    0 25px 70px rgba(0,0,0,.18);
+
+  isolation: isolate;
+
+  transition:
+    transform .35s ease,
+    border-color .35s ease,
+    box-shadow .35s ease;
 }
 
-.card-icon {
-  width: 32px;
-  height: 32px;
 
-  display: flex;
+.about-area:hover {
+  transform: translateY(-4px);
 
-  align-items: center;
+  border-color: rgba(185,121,255,.22);
 
-  justify-content: center;
+  box-shadow:
+    0 30px 80px rgba(0,0,0,.25),
+    0 0 45px rgba(145,85,210,.035);
+}
 
-  color: #65656d;
 
-  font-size: 9px;
+/* =========================================================
+   ABOUT — DECORATIVE ORBIT
+========================================================= */
 
-  border: 1px solid var(--line);
+.about-orbit {
+  position: absolute;
+
+  width: 430px;
+  height: 430px;
+
+  right: -205px;
+  top: -205px;
+
+  border: 1px solid rgba(185,121,255,.08);
+
+  border-radius: 50%;
+
+  pointer-events: none;
+
+  transform: rotate(-18deg);
+}
+
+
+.about-orbit::before {
+  content: "";
+
+  position: absolute;
+
+  width: 300px;
+  height: 300px;
+
+  left: 60px;
+  top: 60px;
+
+  border: 1px solid rgba(185,121,255,.065);
 
   border-radius: 50%;
 }
 
-.card-label {
-  margin-bottom: 13px;
 
-  color: #64646d;
+.about-orbit::after {
+  content: "";
+
+  position: absolute;
+
+  width: 155px;
+  height: 155px;
+
+  left: 125px;
+  top: 125px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle at 35% 35%,
+      rgba(185,121,255,.23),
+      rgba(88,49,130,.07) 45%,
+      transparent 70%
+    );
+
+  filter: blur(.2px);
+}
+
+
+.about-orbit span {
+  position: absolute;
+
+  width: 7px;
+  height: 7px;
+
+  right: 94px;
+  bottom: 125px;
+
+  border-radius: 50%;
+
+  background: #b979ff;
+
+  box-shadow:
+    0 0 15px rgba(185,121,255,.6);
+}
+
+
+/* =========================================================
+   ABOUT — ICON
+========================================================= */
+
+.about-card-icon {
+  position: absolute;
+
+  top: 24px;
+  left: 24px;
+
+  width: 40px;
+  height: 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #aaaab3;
+
+  background: rgba(255,255,255,.025);
+
+  border: 1px solid rgba(255,255,255,.085);
+
+  border-radius: 50%;
+
+  font-size: 14px;
+
+  backdrop-filter: blur(10px);
+
+  z-index: 5;
+}
+
+
+.about-card-icon span {
+  opacity: .8;
+}
+
+
+/* =========================================================
+   ABOUT — CONTENT
+========================================================= */
+
+.about-main {
+  position: relative;
+  z-index: 5;
+
+  margin-bottom: 42px;
+}
+
+
+/* ABOUT LABEL */
+
+.about-main .eyebrow {
+  margin-bottom: 24px;
+
+  color: #777780;
 
   font-family: var(--mono);
-
   font-size: 7px;
-
-  letter-spacing: 0.13em;
+  letter-spacing: 0.16em;
 }
 
-.about-card h2 {
-  max-width: 230px;
 
-  color: #e9e9ed;
+/* ABOUT HEADING */
 
-  font-size: 22px;
+.about-area h2 {
+  max-width: 430px;
 
-  line-height: 1.17;
+  margin: 0;
 
-  letter-spacing: -1px;
+  color: #ededf1;
+
+  font-size: clamp(31px, 2.8vw, 40px);
+
+  font-weight: 500;
+
+  line-height: 1.08;
+
+  letter-spacing: -2.2px;
 }
 
-.about-card h2 em {
+
+.about-area h2 em {
+  color: #d8d3df;
+
   font-family: var(--serif);
 
   font-weight: 400;
+
+  font-style: italic;
 }
 
-.card-text {
-  max-width: 235px;
 
-  color: #6e6e77;
+/* =========================================================
+   ABOUT DESCRIPTION
+========================================================= */
 
-  font-size: 9px;
+.about-area > p {
+  position: relative;
 
-  line-height: 1.85;
+  z-index: 5;
+
+  max-width: 390px;
+
+  margin: 34px 0 0;
+
+  color: #777780;
+
+  font-size: 9.5px;
+
+  line-height: 1.95;
 }
 
-.card-link {
-  display: flex;
 
-  align-items: center;
+/* =========================================================
+   ABOUT CARD BOTTOM AREA
+========================================================= */
 
-  justify-content: space-between;
+.about-area .card-link {
+  position: relative;
 
-  padding-top: 16px;
+  z-index: 5;
 
-  color: #707079;
+  margin-top: 38px;
+
+  padding-top: 19px;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.055);
+
+  color: #73737c;
 
   font-family: var(--mono);
 
   font-size: 7px;
 
-  border-top: 1px solid var(--line-soft);
+  letter-spacing: 0.04em;
 }
 
-.card-link span {
+
+.about-area .card-link span {
   color: var(--accent);
+
+  font-size: 10px;
+
+  transition: transform 0.25s ease;
+}
+
+
+.about-area .card-link:hover span {
+  transform: translateX(4px);
+}
+
+
+
+/* =========================================================
+   PROJECT COUNT CARD
+========================================================= */
+
+.count-area {
+  position: relative;
+
+  min-height: 500px;
+
+  padding: 30px;
+
+  display: flex;
+  flex-direction: column;
+
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 75% 25%,
+      rgba(141,82,206,.09),
+      transparent 30%
+    ),
+    linear-gradient(
+      145deg,
+      #111015 0%,
+      #0d0d12 58%,
+      #100d15 100%
+    );
+
+  border: 1px solid rgba(255,255,255,.065);
+
+  border-radius: 22px;
+
+  box-shadow:
+    0 25px 70px rgba(0,0,0,.18);
+
+  isolation: isolate;
+
+  transition:
+    transform .35s ease,
+    border-color .35s ease,
+    box-shadow .35s ease;
+}
+
+
+.count-area:hover {
+  transform: translateY(-4px);
+
+  border-color: rgba(185,121,255,.20);
+
+  box-shadow:
+    0 30px 80px rgba(0,0,0,.25);
 }
 
 
 /* =========================================================
-   PROJECT COUNT
+   PROJECT — ICON
 ========================================================= */
 
-.project-count {
-  min-height: 390px;
+.count-icon {
+  position: relative;
 
-  padding: 10px 0;
+  z-index: 5;
+
+  width: 40px;
+  height: 40px;
 
   display: flex;
 
-  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 
-  justify-content: space-between;
+  color: #aaaab3;
+
+  background: rgba(255,255,255,.025);
+
+  border: 1px solid rgba(255,255,255,.08);
+
+  border-radius: 50%;
+
+  font-size: 12px;
 }
 
-.card-number {
-  color: #a3a3ad;
 
-  font-size: 58px;
+.count-icon span {
+  opacity: .75;
+}
+
+
+/* =========================================================
+   PROJECT — NUMBER
+========================================================= */
+
+.project-number {
+  position: relative;
+
+  z-index: 5;
+
+  margin-top: 48px;
+
+  color: #b8b7c1;
+
+  font-size: clamp(65px, 5vw, 88px);
 
   font-weight: 700;
 
-  line-height: 0.9;
+  line-height: .8;
 
-  letter-spacing: -5px;
+  letter-spacing: -7px;
 }
 
-.project-count h3 {
-  color: #a4a4ad;
 
-  font-size: 19px;
+/* =========================================================
+   PROJECT — DECORATIVE VISUAL
+========================================================= */
 
-  letter-spacing: -0.8px;
+.project-visual {
+  position: absolute;
+
+  width: 260px;
+  height: 260px;
+
+  right: -65px;
+  top: 125px;
+
+  pointer-events: none;
+
+  opacity: .85;
 }
 
-.round-arrow,
-.small-arrow {
-  width: 33px;
-  height: 33px;
+
+/* glowing sphere */
+
+.project-sphere {
+  position: absolute;
+
+  width: 150px;
+  height: 150px;
+
+  right: -20px;
+  top: 55px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle at 32% 30%,
+      rgba(207,168,255,.24),
+      rgba(117,67,165,.12) 38%,
+      rgba(45,27,62,.15) 70%,
+      transparent 74%
+    );
+
+  box-shadow:
+    inset -18px -15px 45px rgba(0,0,0,.35),
+    0 0 55px rgba(137,78,190,.07);
+
+  filter: blur(.2px);
+}
+
+
+/* orbit lines */
+
+.project-orbit {
+  position: absolute;
+
+  border: 1px solid rgba(185,121,255,.16);
+
+  border-radius: 50%;
+}
+
+
+.orbit-one {
+  width: 250px;
+  height: 95px;
+
+  right: -35px;
+  top: 80px;
+
+  transform: rotate(-24deg);
+}
+
+
+.orbit-two {
+  width: 225px;
+  height: 82px;
+
+  right: -18px;
+  top: 88px;
+
+  transform: rotate(23deg);
+
+  border-color: rgba(255,255,255,.06);
+}
+
+
+/* glowing orbit point */
+
+.project-glow {
+  position: absolute;
+
+  width: 7px;
+  height: 7px;
+
+  right: 105px;
+  top: 126px;
+
+  border-radius: 50%;
+
+  background: #b979ff;
+
+  box-shadow:
+    0 0 14px rgba(185,121,255,.7),
+    0 0 28px rgba(185,121,255,.25);
+}
+
+
+/* =========================================================
+   PROJECT — CONTENT
+========================================================= */
+
+.count-content {
+  position: relative;
+
+  z-index: 5;
+
+  margin-top: auto;
+
+  padding-top: 20px;
+
+  border-top: 1px solid rgba(255,255,255,.065);
+}
+
+
+.count-content .eyebrow {
+  margin-bottom: 11px;
+
+  color: #6d6d76;
+
+  font-size: 6.5px;
+
+  letter-spacing: .15em;
+}
+
+
+.count-content h3 {
+  color: #dedee3;
+
+  font-family: var(--serif);
+
+  font-size: 25px;
+
+  font-weight: 500;
+
+  line-height: 1;
+
+  letter-spacing: -.8px;
+}
+
+
+/* =========================================================
+   PROJECT DESCRIPTION
+========================================================= */
+
+.count-description {
+  position: relative;
+
+  z-index: 5;
+
+  max-width: 235px;
+
+  margin: 20px 0 21px;
+
+  color: #777780;
+
+  font-size: 9px;
+
+  line-height: 1.75;
+}
+
+
+/* =========================================================
+   PROJECT LINK
+========================================================= */
+
+.count-link {
+  position: relative;
+
+  z-index: 5;
+
+  padding-top: 16px;
 
   display: flex;
 
   align-items: center;
 
-  justify-content: center;
-
-  color: #686870;
-
-  font-size: 9px;
-
-  border: 1px solid var(--line);
-
-  border-radius: 50%;
-
-  transition:
-    color 0.25s ease,
-    background 0.25s ease;
-}
-
-.round-arrow:hover,
-.small-arrow:hover {
-  color: var(--accent);
-
-  background: rgba(185, 121, 255, 0.035);
-}
-
-
-/* =========================================================
-   SECOND ROW
-========================================================= */
-
-.bento-middle {
-  display: grid;
-
-  grid-template-columns: minmax(0, 1.5fr) minmax(230px, 0.55fr);
-
-  gap: 70px;
-
-  margin-top: 85px;
-}
-
-
-/* =========================================================
-   TOOLBOX
-========================================================= */
-
-.technologies-card {
-  min-height: 270px;
-
-  padding: 0;
-}
-
-.card-header {
-  display: flex;
-
-  align-items: flex-start;
-
   justify-content: space-between;
 
-  margin-bottom: 27px;
+  color: #a1a1aa;
+
+  font-family: var(--mono);
+
+  font-size: 7px;
 }
 
-.card-header h2 {
-  color: #e8e8ec;
 
-  font-size: 25px;
+.count-link::before {
+  content: "";
 
-  line-height: 1;
+  position: absolute;
 
-  letter-spacing: -1px;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  height: 1px;
+
+  background: rgba(255,255,255,.065);
 }
 
+
+.count-link span {
+  color: #b979ff;
+
+  font-size: 10px;
+
+  transition:
+    transform .25s ease;
+}
+
+
+.count-link:hover {
+  color: #e1e1e6;
+}
+
+
+.count-link:hover span {
+  transform: translateX(5px);
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 950px) {
+
+  .about-area,
+  .count-area {
+    min-height: 390px;
+
+    padding: 28px;
+  }
+
+
+  .about-area h2 {
+    max-width: 460px;
+
+    font-size: 34px;
+  }
+
+
+  .about-area > p {
+    max-width: 440px;
+  }
+
+
+  .project-number {
+    font-size: 74px;
+  }
+
+
+  .project-visual {
+    transform: scale(.85);
+
+    transform-origin: right top;
+
+    right: -60px;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 650px) {
+
+  .about-area,
+  .count-area {
+    min-height: 390px;
+
+    padding: 24px;
+
+    border-radius: 19px;
+  }
+
+
+  /* ABOUT */
+
+  .about-card-icon {
+    top: 20px;
+    left: 20px;
+
+    width: 36px;
+    height: 36px;
+  }
+
+
+  .about-orbit {
+    width: 330px;
+    height: 330px;
+
+    right: -165px;
+    top: -165px;
+  }
+
+
+  .about-main {
+    margin-bottom: 23px;
+  }
+
+
+  .about-main .eyebrow {
+    margin-bottom: 14px;
+  }
+
+
+  .about-area h2 {
+    max-width: 100%;
+
+    font-size: 30px;
+
+    line-height: 1.03;
+
+    letter-spacing: -1.6px;
+  }
+
+
+  .about-area > p {
+    max-width: 100%;
+
+    margin-bottom: 22px;
+
+    font-size: 9px;
+
+    line-height: 1.8;
+  }
+
+
+  .about-area .text-link {
+    font-size: 6.5px;
+  }
+
+
+  /* PROJECT COUNT */
+
+  .count-icon {
+    width: 36px;
+    height: 36px;
+  }
+
+
+  .project-number {
+    margin-top: 38px;
+
+    font-size: 70px;
+
+    letter-spacing: -6px;
+  }
+
+
+  .project-visual {
+    width: 240px;
+    height: 240px;
+
+    right: -75px;
+    top: 105px;
+
+    transform: scale(.85);
+  }
+
+
+  .count-content {
+    padding-top: 17px;
+  }
+
+
+  .count-content h3 {
+    font-size: 24px;
+  }
+
+
+  .count-description {
+    max-width: 250px;
+
+    margin: 18px 0 19px;
+
+    font-size: 8.8px;
+  }
+
+
+  .count-link {
+    font-size: 6.5px;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 380px) {
+
+  .about-area,
+  .count-area {
+    min-height: 360px;
+
+    padding: 21px;
+  }
+
+
+  .about-area h2 {
+    font-size: 27px;
+
+    letter-spacing: -1.4px;
+  }
+
+
+  .about-area > p {
+    font-size: 8.5px;
+  }
+
+
+  .project-number {
+    font-size: 64px;
+  }
+
+
+  .project-visual {
+    transform: scale(.72);
+
+    right: -90px;
+  }
+
+
+  .count-description {
+    max-width: 220px;
+
+    font-size: 8.3px;
+  }
+
+}
 
 /* =========================================================
    TECH GRID
@@ -4112,4 +4760,271 @@ footer a:hover {
     font-size: 23px;
   }
 
+}
+
+/* =========================================================
+   FINAL ABOUT CARD FIX — ACTUAL JSX CLASSES
+   This override intentionally comes last.
+========================================================= */
+
+.about-area {
+  position: relative;
+  width: 100%;
+  min-height: 500px;
+  padding: 34px 34px 26px !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: stretch;
+  overflow: hidden;
+  box-sizing: border-box;
+
+  background:
+    radial-gradient(
+      circle at 88% 8%,
+      rgba(154, 91, 225, 0.10),
+      transparent 30%
+    ),
+    linear-gradient(
+      145deg,
+      #15151a 0%,
+      #101014 60%,
+      #0d0d12 100%
+    );
+
+  border: 1px solid rgba(255, 255, 255, 0.075);
+  border-radius: 22px;
+
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.20);
+
+  transition:
+    transform 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.about-area:hover {
+  transform: translateY(-4px);
+  border-color: rgba(185, 121, 255, 0.22);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.28);
+}
+
+/* actual arrow used by the JSX */
+.about-area .circle-arrow {
+  position: relative;
+  z-index: 6;
+
+  width: 38px;
+  height: 38px;
+  flex: 0 0 38px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin: 0;
+
+  color: #9999a3;
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid rgba(255, 255, 255, 0.085);
+  border-radius: 50%;
+
+  font-family: var(--mono);
+  font-size: 8px;
+}
+
+.about-area .about-main {
+  position: relative;
+  z-index: 5;
+
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 34px 6px 0;
+}
+
+.about-area .about-main .eyebrow {
+  display: block;
+  margin: 0 0 18px;
+
+  color: #777780;
+  font-family: var(--mono);
+  font-size: 6.5px;
+  line-height: 1;
+  letter-spacing: 0.16em;
+}
+
+.about-area .about-main h2 {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+
+  color: #eeeeF2;
+  font-size: clamp(28px, 2.25vw, 35px);
+  font-weight: 500;
+  line-height: 1.10;
+  letter-spacing: -1.8px;
+}
+
+.about-area .about-main h2 em {
+  color: #ddd7e4;
+  font-family: var(--serif);
+  font-weight: 400;
+  font-style: italic;
+}
+
+.about-area > p {
+  position: relative;
+  z-index: 5;
+
+  width: 100%;
+  max-width: 285px;
+  margin: 0;
+  padding: 0 6px;
+
+  color: #777780;
+  font-size: 8.8px;
+  line-height: 1.95;
+}
+
+.about-area .text-link {
+  position: relative;
+  z-index: 5;
+
+  width: 100%;
+  margin: 0;
+  padding: 16px 6px 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  color: #73737c;
+  font-family: var(--mono);
+  font-size: 6.5px;
+  letter-spacing: 0.05em;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.055);
+}
+
+.about-area .text-link span {
+  color: var(--accent);
+  font-size: 10px;
+  transition: transform 0.25s ease;
+}
+
+.about-area .text-link:hover {
+  color: #a5a5ae;
+}
+
+.about-area .text-link:hover span {
+  transform: translateX(5px);
+}
+
+
+/* =========================================================
+   FINAL ABOUT CARD — TABLET
+========================================================= */
+
+@media (max-width: 950px) {
+  .about-area {
+    min-height: 440px;
+    padding: 30px 28px 24px !important;
+  }
+
+  .about-area .about-main {
+    padding: 28px 5px 0;
+  }
+
+  .about-area .about-main .eyebrow {
+    margin-bottom: 17px;
+  }
+
+  .about-area .about-main h2 {
+    max-width: 380px;
+    font-size: 32px;
+  }
+
+  .about-area > p {
+    max-width: 340px;
+    padding: 0 5px;
+    font-size: 9px;
+  }
+
+  .about-area .text-link {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+}
+
+
+/* =========================================================
+   FINAL ABOUT CARD — MOBILE
+========================================================= */
+
+@media (max-width: 650px) {
+  .about-area {
+    width: 100%;
+    min-height: 390px;
+    padding: 25px 23px 21px !important;
+    border-radius: 18px;
+  }
+
+  .about-area .circle-arrow {
+    width: 36px;
+    height: 36px;
+    flex-basis: 36px;
+  }
+
+  .about-area .about-main {
+    padding: 24px 3px 0;
+  }
+
+  .about-area .about-main .eyebrow {
+    margin-bottom: 16px;
+    font-size: 6.5px;
+  }
+
+  .about-area .about-main h2 {
+    max-width: 100%;
+    font-size: 29px;
+    line-height: 1.10;
+    letter-spacing: -1.5px;
+  }
+
+  .about-area > p {
+    max-width: 100%;
+    padding: 0 3px;
+    font-size: 9px;
+    line-height: 1.9;
+  }
+
+  .about-area .text-link {
+    padding: 16px 3px 0;
+  }
+}
+
+
+/* =========================================================
+   FINAL ABOUT CARD — SMALL MOBILE
+========================================================= */
+
+@media (max-width: 380px) {
+  .about-area {
+    min-height: 360px;
+    padding: 23px 20px 19px !important;
+  }
+
+  .about-area .about-main {
+    padding-top: 22px;
+  }
+
+  .about-area .about-main h2 {
+    font-size: 26px;
+    letter-spacing: -1.3px;
+  }
+
+  .about-area > p {
+    font-size: 8.5px;
+  }
 }

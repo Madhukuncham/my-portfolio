@@ -133,72 +133,110 @@ function App() {
           </article>
 
 
+{/* =====================================================
+    ABOUT CARD
+===================================================== */}
 
-          {/* ABOUT */}
+<article className="about-area">
 
-          <article className="about-area">
+  {/* decorative background */}
+  <div className="about-orbit">
+    <span></span>
+  </div>
 
-            <div className="circle-arrow">
-              ↗
-            </div>
+  <div className="about-card-icon">
+    <span>♙</span>
+  </div>
 
-            <div className="about-main">
+  <div className="about-main">
 
-              <span className="eyebrow">
-                ABOUT
-              </span>
+    <span className="eyebrow">
+      ABOUT ME
+    </span>
 
-              <h2>
-                Building software
-                <br />
-                around <em>real problems.</em>
-              </h2>
+    <h2>
+      Building software
+      <br />
+      around <em>real problems.</em>
+    </h2>
 
-            </div>
+  </div>
 
+  <p>
+    I work with Python, databases and web
+    technologies to turn repetitive data
+    workflows into reliable software systems.
+  </p>
 
-            <p>
-              I work with Python, databases and web
-              technologies to turn repetitive data
-              workflows into reliable software systems.
-            </p>
+  <a
+    href="#work"
+    className="text-link"
+  >
+    View my work
+    <span>↗</span>
+  </a>
 
-
-            <a
-              href="#work"
-              className="text-link"
-            >
-              View my work
-              <span>→</span>
-            </a>
-
-          </article>
+</article>
 
 
+{/* =====================================================
+    PROJECT COUNT CARD
+===================================================== */}
 
-          {/* PROJECT COUNT */}
+<article className="count-area">
 
-          <article className="count-area">
+  {/* decorative project visual */}
+  <div className="project-visual">
 
-            <div className="project-number">
-              06
-            </div>
+    <div className="project-orbit orbit-one"></div>
+    <div className="project-orbit orbit-two"></div>
 
-            <div className="count-bottom">
+    <div className="project-glow"></div>
 
-              <span className="eyebrow">
-                SELECTED
-              </span>
+    <div className="project-sphere"></div>
 
-              <h3>
-                Projects
-              </h3>
+  </div>
 
-            </div>
 
-          </article>
+  <div className="count-icon">
+    <span>▰</span>
+  </div>
 
-        </section>
+
+  <div className="project-number">
+    06
+  </div>
+
+
+  <div className="count-content">
+
+    <span className="eyebrow">
+      SELECTED
+    </span>
+
+    <h3>
+      Projects
+    </h3>
+
+  </div>
+
+
+  <p className="count-description">
+    A collection of full-stack and
+    automation projects solving
+    real-world problems.
+  </p>
+
+
+  <a
+    href="#work"
+    className="count-link"
+  >
+    Explore projects
+    <span>↗</span>
+  </a>
+
+</article>        </section>
 
 
 
